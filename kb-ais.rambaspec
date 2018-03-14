@@ -1,0 +1,25 @@
+# Template information section
+name: "kb-ais"
+summary: "Swift VIPER module template with UIViewController playing as a View."
+author: "Gromov Igor"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# View layer
+- {name: .storyboard,  path: Code/storyboard.storyboard.liquid}
+- {name: ViewController.swift,  path: Code/viewcontroller.swift.liquid}
+
+# ViewModel layer
+- {name: ViewModel.swift, path: Code/viewmodel.swift.liquid}
+- {name: ViewModelOutputProtocol.swift, path: Code/viewmodel_input_protocol.swift.liquid}
+- {name: ViewModelInputProtocol.swift, path: Code/viewmodel_output_protocol.swift.liquid}
+
+# Wireframe layer
+- {name: Wireframe.swift, path: Code/wireframe.swift.liquid}
+- {name: WireframeProtocol.swift, path: Code/wireframe_protocol.swift.liquid}
+
+# Assembly
+- {name: Assembly.swift, path: Code/assembly.swift.liquid}

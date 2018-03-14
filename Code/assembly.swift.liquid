@@ -1,0 +1,32 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import DITranquillity
+
+class {{ module_info.name }}Assembly: DIPart {
+    
+    static func load(container: DIContainer) {
+        
+        container.registerStoryboard(name: "{{ module_info.name }}", bundle: nil)
+            .lifetime(.single)
+        
+        container.register({{ module_info.name }}ViewModel.init)
+            .as({{ module_info.name }}ViewModelOutputProtocol.self)
+            .as({{ module_info.name }}ViewModelInputProtocol.self)
+            .lifetime(.single)
+        
+        container.register({{ module_info.name }}Wireframe.init)
+            .as({{ module_info.name }}WireframeProtocol.self)
+            .lifetime(.objectGraph)
+        
+        container.register({{ module_info.name }}ViewController.self)
+            .injection { $0.viewModel = $1 }
+            .injection { $0.wireframe = $1 }
+            .lifetime(.objectGraph)
+    }
+}
